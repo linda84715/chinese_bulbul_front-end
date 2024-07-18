@@ -1,52 +1,121 @@
 /* styles.css */
 body {
-  font-family: "Arial", sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #333;
+  background: #f4f4f4;
 }
 
-header nav ul {
-  list-style-type: none;
-  background: #f8f8f8;
-  padding: 20px;
-  text-align: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-header nav ul li {
-  display: inline;
-  margin-right: 20px;
-  font-weight: bold;
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffffff;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  margin: 20px 0;
+}
+
+.bird-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #333;
+  position: relative;
+}
+
+.bird-logo::before, .bird-logo::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+}
+
+.bird-logo::before {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 10px;
+  left: 15px;
+}
+
+.bird-logo::after {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 15px;
+  left: 20px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+nav ul li.selected {
+  color: #d9534f;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
-  background: #eee;
-}
-
-main .introduction h1 {
-  color: #000;
-}
-
-main .details h2 {
-  color: #666;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #f8f8f8;
-  position: fixed;
   width: 100%;
-  bottom: 0;
 }
 
+.intro {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.details .detail {
+  flex: 1;
+  margin: 0 10px;
+  text-align: center;
+}
+
+.details .detail h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 響應式設計 */
 @media (max-width: 768px) {
-  header nav ul {
-    text-align: left;
+  .details {
+      flex-direction: column;
+      align-items: center;
   }
-  header nav ul li {
-    display: block;
-    margin-bottom: 10px;
+  .details .detail {
+      margin-bottom: 20px;
+  }
+  nav ul {
+      flex-direction: column;
+      align-items: center;
   }
 }
