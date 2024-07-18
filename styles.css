@@ -1,87 +1,77 @@
-/* styles.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background: #f4f4f4;
+  overflow: hidden; /* 禁用滾動 */
 }
 
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row; /* 讓 header 和 main 在同一行顯示 */
+  align-items: flex-start; /* 確保 header 和 main 在頂部對齊 */
 }
 
-header {
+.header {
   display: flex;
   flex-direction: column;
-  align-items: center;
   background: #ffffff;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 345px; /* 固定 header 的寬度 */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加陰影 */
+  height: 100vh; /* 讓 header 佔滿整個視窗高度 */
+  position: sticky; /* 讓 header 固定在左側 */
+  top: 0;
 }
 
-.logo {
-  margin: 20px 0;
-}
-
-.bird-logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #333;
-  position: relative;
-}
-
-.bird-logo::before, .bird-logo::after {
-  content: '';
-  position: absolute;
-  background: #fff;
-}
-
-.bird-logo::before {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  top: 10px;
-  left: 15px;
-}
-
-.bird-logo::after {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  top: 15px;
-  left: 20px;
+.header h2 {
+  text-align: center; /* 將文字置中 */
 }
 
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+  width: 100%;
   display: flex;
-  gap: 15px;
+  flex-direction: column;
+  align-items: center; /* 讓導航列中的項目置中 */
 }
 
 nav ul li {
   padding: 10px 20px;
   cursor: pointer;
+  text-align: center; /* 將文字置中 */
+  width: 100%;
 }
 
-nav ul li.selected {
-  color: #d9534f;
+nav ul li:hover {
+  color: #AA6666;
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* 底線寬度 */
 }
 
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   width: 100%;
 }
 
 .intro {
-  text-align: center;
-  margin-bottom: 20px;
+  position: relative;
+  width: 80%;
+  max-width: 1200px; /* 設置最大寬度 */
+  margin: 0 auto; /* 居中對齊 */
+  text-align: right; /* 將文字右對齊 */
+  background: url('/banner.png') no-repeat center center; /* 設置背景圖片 */
+  background-size: cover; /* 確保背景圖片覆蓋整個容器 */
+  height: 60vh; /* 設置容器高度 */
+  color: white; /* 確保文字顏色與背景形成對比 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* 將內容垂直置底 */
+  justify-content: flex-end; /* 將內容水平置右 */
+  padding: 20px; /* 添加內邊距以防文字緊貼邊框 */
 }
 
 .details {
@@ -92,6 +82,7 @@ main {
   padding: 20px;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* 居中對齊 */
 }
 
 .details .detail {
@@ -103,19 +94,4 @@ main {
 .details .detail h2 {
   color: #333;
   margin-bottom: 10px;
-}
-
-/* 響應式設計 */
-@media (max-width: 768px) {
-  .details {
-      flex-direction: column;
-      align-items: center;
-  }
-  .details .detail {
-      margin-bottom: 20px;
-  }
-  nav ul {
-      flex-direction: column;
-      align-items: center;
-  }
 }
