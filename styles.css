@@ -29,7 +29,7 @@ body {
 }
 
 .header h2 {
-  text-align: center; /* 將文字置中 */
+  text-align: center; 
   margin-top: 20%;
 }
 
@@ -70,42 +70,42 @@ body {
   position: absolute; /* 鎖定logo元素内部元素位置 */
 }
 
-  .top {
-    width: 52px;
-    height: 46px;
-    background-color: black;
-    border-radius: 80% 40% 50% 0% / 70% 60% 50% 0%;
-    bottom: 25px;
-    left: 25px;
-  }
+.top {
+  width: 52px;
+  height: 46px;
+  background-color: black;
+  border-radius: 80% 40% 50% 0% / 70% 60% 50% 0%;
+  bottom: 25px;
+  left: 25px;
+}
 
-  .bottom {
-    width: 52px;
-    height: 25px;
-    background-color: white;
-    border-radius: 60% 20% 50% 0% / 85% 20% 50% 0%;
-    top: 40px;
-    left: 25px;
-  }
+.bottom {
+  width: 52px;
+  height: 25px;
+  background-color: white;
+  border-radius: 60% 20% 50% 0% / 85% 20% 50% 0%;
+  top: 40px;
+  left: 25px;
+}
 
-  .beak {
-    width: 15px;
-    height: 8px;
-    background-color: black;
-    border-radius: 0% 90% 0% 0% / 0% 90% 00% 0%;
-    top: 42px;
-    right: 10px;
-    rotate: 40px;
-  }
+.beak {
+  width: 15px;
+  height: 8px;
+  background-color: black;
+  border-radius: 0% 90% 0% 0% / 0% 90% 00% 0%;
+  top: 42px;
+  right: 10px;
+  transform: rotate(-10deg); /* 鳥嘴巴稍微傾斜 */
+}
 
-  .eye {
-    width: 10px;
-    height: 10px;
-    background-color: black;
-    border-radius: 50%;
-    top: 45px;
-    right: 30px;
-  }
+.eye {
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  top: 45px;
+  right: 30px;
+}
 
 /* 導航列 */
 
@@ -155,7 +155,7 @@ main {
   flex-direction: column;
   align-items: flex-end; /* 將內容垂直置底 */
   justify-content: flex-end; /* 將內容水平置右 */
-  padding: 20px; /* 添加內邊距以防文字緊貼邊框 */
+  padding: 20px; 
   z-index: 1; /* 確保 intro 背景圖片在 logo 之下 */
 }
 
@@ -215,59 +215,60 @@ main {
 .details .detail h2::after {
   content: ""; /* 偽元素不需要文字內容 */
   position: absolute;
-  top: 60px; 
-  left: 25px; 
-  width: 10px; 
+  top: 60px;
+  left: 25px;
+  width: 10px;
   height: 10px;
   border: 8px solid #aa6666;
   border-radius: 50%;
   opacity: 0.6; /* 設置透明度 */
 }
 
-/* 新增媒體查詢 */
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .container {
-    flex-direction: column; /* 在較小的視窗下將 container 容器設置為縱向排列 */
+    flex-direction: column;
   }
 
   .header {
-    width: 100%; /* 在較小的視窗下讓 header 寬度占滿容器 */
-    height: auto; /* 讓 header 高度自適應內容 */
-    display: flex;
-    flex-direction: row; /* 將 header 內部設置為橫向排列 */
+    width: 100%;
     align-items: center;
-    position: sticky; /* 確保 header 在滾動時固定 */
-    top: 0; /* 將 header 固定在頁面頂部 */
-    background: #ffffff;
     z-index: 1000;
-    justify-content: space-between; 
+    justify-content: flex-start; /* 確保內容在 header 內垂直排列 */
+  }
+
+  .header-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* 確保 menu-icon 和 header-content 在同一排 */
+    padding: 10px;
   }
 
   .header-content {
     flex-grow: 1;
-    justify-content: center; /* 在header-content中均匀分布 */
-    position: relative; /* 確保內容置中 */
+    justify-content: center;
+    position: relative;
   }
 
   .header h2 {
-    margin-top: 0; 
-    text-align: center; 
-    flex-grow: 1; /* 讓 h2 佔據剩餘空間 */
-    padding-top: 20px;
+    margin: 0;
+    text-align: center;
+    flex-grow: 1;
   }
 
   .logo {
-    position: relative; 
-    transform: none; /* 移除transform屬性 */
+    position: relative;
+    transform: none;
     top: 0;
     left: 0;
-    margin: 0 10px 0 0; /* 添加適當的邊距 */
-    width: 50px; /* 調整寬度 */
-    height: 50px; /* 調整高度 */
+    margin: 0 15px 0 5px;
+    width: 50px;
+    height: 50px;
   }
 
   .top {
-    width: 26px; /* 調整內部元素大小 */
+    width: 26px;
     height: 23px;
     bottom: 12.5px;
     left: 12.5px;
@@ -299,37 +300,44 @@ main {
   }
 
   .menu-icon {
-    display: block; /* 顯示菜單圖標 */
+    display: block;
   }
 
   nav {
-    display: none; /* 隱藏導航列 */
+    display: none; /* 預設隱藏 */
+    width: 100%; /* 讓導航列寬度占滿容器 */
+    background: #ffffff;
+    position: relative; /* 使用相對定位，讓其影響 header 的高度 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    box-sizing: border-box; /* 確保 padding 和 border 包含在寬度內 */
   }
 
   nav ul {
-    flex-direction: column; /* 垂直排列 */
-    align-items: flex-start; /* 左對齊 */
+    align-items: flex-start;
   }
 
   nav ul li {
-    width: 100%; /* 讓項目寬度占滿容器 */
+    width: 100%;
+    box-sizing: border-box; 
   }
 
   .intro {
     text-align: right;
+    min-height: 50vh;
+    background: url("./banner.png") no-repeat center center;
+    background-size: cover;
   }
 
   .details {
-    display: flex; 
-    flex-direction: column; /* 將 details 容器設置為縱向排列 */
+    flex-direction: column;
     width: 100%;
-    align-items: center; 
+    align-items: center;
     height: auto;
-    justify-content: center; 
+    justify-content: center;
   }
 
   .details .detail {
-    padding: 50px; 
-    justify-content: center; 
+    padding: 50px;
+    justify-content: center;
   }
 }
