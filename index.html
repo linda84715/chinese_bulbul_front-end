@@ -9,14 +9,19 @@
 <body>
     <div class="container">
         <header class="header">
-            <div class="logo">
-                <!-- 使用純 CSS 繪製的 Logo -->
-                <div class="bird-logo"></div>
+            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            <div class="header-content">
+                <h2>白頭翁不吃小米</h2>
+                <div class="logo">
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                    <div class="beak"></div>
+                    <div class="eye"></div>
+                </div>
             </div>
-            <h2>白頭翁不吃小米</h2>
-            <nav>
+            <nav id="nav-menu">
                 <ul>
-                    <li class="selected">白頭翁的特性</li>
+                    <li>白頭翁的特性</li>
                     <li>白頭翁的故事</li>
                     <li>白頭翁的美照</li>
                     <li>白頭翁的危機</li>
@@ -44,5 +49,15 @@
             </section>
         </main>
     </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('nav-menu');
+            if (menu.style.display === 'block' || menu.style.display === '') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
